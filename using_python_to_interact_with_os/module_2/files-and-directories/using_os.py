@@ -11,7 +11,7 @@ dest_dir = os.path.join(os.getcwd(), "test1")
 # Construct source path:
 src_file = os.path.join(os.getcwd(), "sample_data", "test-file.txt")
 
-if not os.path.exists(dest_dir) and not os.path.exists(src_file):
+if not os.path.exists(dest_dir) or not os.path.exists(src_file):
     os.mkdir(dest_dir)
     # Create the txt file if file doesn't exist
     with open(src_file, "w") as file:
@@ -29,3 +29,4 @@ os.rename(src_file, dest_file)
 # Read the file content from the new location
 file = open(dest_file)
 print(file.read())
+file.close()
